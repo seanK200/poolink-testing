@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import CopyButton from '../Basic/CopyButton';
 import KebabButton from '../Basic/KebabButton';
 
+
 export default function LinkItem() {
-  const copyURL = () => {
-
-  }
-
   return (
     <StyledLinkItem>
       <Thumbnail src={ process.env.PUBLIC_URL + '/images/LinkItem/LinkThumbnail.png' }/>
-      <CopyButton className="copy-button" onClick={copyURL}/>
+      <FloatingControls className="floating-controls">
+        <CopyButton className="copy-button" text='www.naver.com' onCopy={()=> { alert("주소가 클립보드로 복사되었습니다.") }}/>
+      </FloatingControls>
       <LinkInfo>
         <FaviconContainer>
           <Favicon src={ process.env.PUBLIC_URL + '/images/LinkItem/favicon.ico' }/>
@@ -30,30 +29,29 @@ export default function LinkItem() {
 
 const StyledLinkItem = styled.div`
   width: 312px;
-  height: 240px;
   border-radius: 10px;
-  filter: drop-shadow(0px 0px 10px rgba(97, 131, 190, 0.3));
+  box-shadow: 0px 0px 10px rgba(97, 131, 190, 0.3);
   background: white;
   padding: 0;
   overflow: hidden;
   cursor: pointer;
   transition: 0.3s ease;
   position: relative;
-  
-  .copy-button {
-    opacity: 0;
-    position: absolute;
-    bottom: 76px;
-    right: 12px;
-    transition: 0.3s ease;
-  }
 
   &:hover {
-    filter: drop-shadow(0px 0px 10px rgba(97, 131, 190, 0.8));
-    .copy-button {
+    box-shadow: 0px 0px 10px rgba(97, 131, 190, 0.8);
+    .floating-controls {
       opacity: 1;
     }
   }
+`;
+
+const FloatingControls = styled.div`
+  opacity: 0;
+  position: absolute;
+  bottom: 76px;
+  right: 12px;
+  transition: 0.3s ease;
 `;
 
 const Thumbnail = styled.img`

@@ -17,9 +17,6 @@ export default function AdvancedComponents() {
           <h1>LinkItem</h1>
           <p>보드 내부에 존재하는 각각의 링크들</p>
           <Renderer component={<LinkItem />} bg="pl-lightblue" noshadow />
-          <h1>BoardItem</h1>
-          <p>유저가 생성한 보드</p>
-
         </Container>
       </Col>
     </Row>
