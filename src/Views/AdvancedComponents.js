@@ -12,7 +12,7 @@ export default function AdvancedComponents() {
           <ListGroup.Item action>BoardItem</ListGroup.Item>
         </ListGroup>
       </Col>
-      <Col sm={10} className="bg-light vh-100 overflow-scroll" style={{ padding: "15px" }}>
+      <Col sm={10} className="bg-light" style={{ padding: "15px" }}>
         <Container fluid="xl">
           <h1>LinkItem</h1>
           <p>보드 내부에 존재하는 각각의 링크들</p>

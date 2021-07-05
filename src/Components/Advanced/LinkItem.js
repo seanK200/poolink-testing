@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import CategoryItem from '../Basic/CategoryItem';
 import CopyButton from '../Basic/CopyButton';
+import GotoButton from '../Basic/GotoButton';
 import KebabButton from '../Basic/KebabButton';
 
 
@@ -23,6 +25,15 @@ export default function LinkItem() {
           <KebabButton />
         </LinkAction>
       </LinkInfo>
+      <BoardInfo>
+        <CategoryContainer>
+          <CategoryItem color="#F58B29" bgColor="#FFE6C1">검색</CategoryItem>
+        </CategoryContainer>
+        <BoardLink>
+          <BoardName>여행 리스트</BoardName>
+          <GotoButton />
+        </BoardLink>
+      </BoardInfo>
     </StyledLinkItem>
   )
 }
@@ -49,7 +60,7 @@ const StyledLinkItem = styled.div`
 const FloatingControls = styled.div`
   opacity: 0;
   position: absolute;
-  bottom: 76px;
+  top: 143px;
   right: 12px;
   transition: 0.3s ease;
 `;
@@ -123,4 +134,38 @@ const LinkAction = styled.div`
   display: flex;
   align-items: flex-start;
   padding-top: 2px;
+`;
+
+const BoardInfo = styled.div`
+  width: 100%;
+  border-top: 0.5px solid #D7D7D7;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const CategoryContainer = styled.div`
+
+`;
+
+const BoardLink = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  &:hover {
+    background-color: #EFEFEF;
+  }
+`;
+
+const BoardName = styled.div`
+  margin-right: 5px;
+  font-family: Pretendard;
+  font-weight: 600;
+  color: #747474;
+  font-size: 0.75em;
 `;
