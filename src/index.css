@@ -20,65 +20,70 @@ a {
   text-decoration: inherit;
 }
 
+a:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 @font-face {
   font-family: Pretendard;
   src: url(./Fonts/Pretendard/Pretendard-Thin.woff2) format("woff2"),
        url(./Fonts/Pretendard/Pretendard-Thin.woff) format("woff");
-  font-wieght: 100;
+  font-weight: 100;
 }
 
 @font-face {
   font-family: Pretendard;
   src: url(./Fonts/Pretendard/Pretendard-ExtraLight.woff2) format("woff2"),
        url(./Fonts/Pretendard/Pretendard-ExtraLight.woff) format("woff");
-  font-wieght: 200;
+  font-weight: 200;
 }
 
 @font-face {
   font-family: Pretendard;
   src: url(./Fonts/Pretendard/Pretendard-Light.woff2) format("woff2"),
        url(./Fonts/Pretendard/Pretendard-Light.woff) format("woff");
-  font-wieght: 300;
+  font-weight: 300;
 }
 
 @font-face {
   font-family: Pretendard;
   src: url(./Fonts/Pretendard/Pretendard-Regular.woff2) format("woff2"),
        url(./Fonts/Pretendard/Pretendard-Regular.woff) format("woff");
-  font-wieght: 400;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: Pretendard;
   src: url(./Fonts/Pretendard/Pretendard-Medium.woff2) format("woff2"),
        url(./Fonts/Pretendard/Pretendard-Medium.woff) format("woff");
-  font-wieght: 500;
+  font-weight: 500;
 }
 
 @font-face {
   font-family: Pretendard;
   src: url(./Fonts/Pretendard/Pretendard-SemiBold.woff2) format("woff2"),
        url(./Fonts/Pretendard/Pretendard-SemiBold.woff) format("woff");
-  font-wieght: 600;
+  font-weight: 600;
 }
 
 @font-face {
   font-family: Pretendard;
   src: url(./Fonts/Pretendard/Pretendard-Bold.woff2) format("woff2"),
        url(./Fonts/Pretendard/Pretendard-Bold.woff) format("woff");
-  font-wieght: 700;
+  font-weight: 700;
 }
 
 @font-face {
   font-family: Pretendard;
   src: url(./Fonts/Pretendard/Pretendard-ExtraBold.woff2) format("woff2"),
   url(./Fonts/Pretendard/Pretendard-ExtraBold.woff) format("woff");
-  font-wieght: 800;
+  font-weight: 800;
 }
 
 @font-face {
   font-family: Pretendard;
   src: url(./Fonts/Pretendard/Pretendard-Black.woff2) format("woff2"),
        url(./Fonts/Pretendard/Pretendard-Black.woff) format("woff");
-  font-wieght: 900;
+  font-weight: 900;
 }
