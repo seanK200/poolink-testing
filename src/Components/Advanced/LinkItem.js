@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import CategoryItem from '../Basic/CategoryItem';
 import CopyButton from '../Basic/CopyButton';
@@ -6,7 +6,7 @@ import GotoButton from '../Basic/GotoButton';
 import KebabButton from '../Basic/KebabButton';
 import LargeButton from '../Basic/LargeButton';
 
-const linkInfo = {
+const initiallinkInfo = {
   label: '네이버: 세상의 모든 검색, 네이버',
   url: 'https://www.naver.com',
   favicon: process.env.PUBLIC_URL + '/images/LinkItem/favicon.ico',
@@ -20,7 +20,7 @@ function getDomainName(url) {
   return domainName;
 }
 
-const boardInfo = {
+const initialboardInfo = {
   name: '검색 모음',
   category: [
     {
@@ -37,6 +37,9 @@ const boardInfo = {
 }
 
 export default function LinkItem() {
+  const [linkInfo, setLinkInfo] = useState(initiallinkInfo);
+  const [boardInfo, setBoardInfo] = useState(initialboardInfo);
+
   return (
     <StyledLinkItem>
       <Thumbnail src={ linkInfo.thumbnail }/>
