@@ -6,34 +6,69 @@ import GotoButton from '../Basic/GotoButton';
 import KebabButton from '../Basic/KebabButton';
 import LargeButton from '../Basic/LargeButton';
 
+const linkInfo = {
+  label: '네이버: 세상의 모든 검색, 네이버',
+  url: 'https://www.naver.com',
+  favicon: process.env.PUBLIC_URL + '/images/LinkItem/favicon.ico',
+  thumbnail: process.env.PUBLIC_URL + '/images/LinkItem/LinkThumbnail.png'
+}
+
+function getDomainName(url) {
+  let domainName = url;
+  if (domainName.includes('://')) domainName = domainName.split('://')[1];
+  if (domainName.includes('/')) domainName = domainName.split('/')[0];
+  return domainName;
+}
+
+const boardInfo = {
+  name: '검색 모음',
+  category: [
+    {
+      label: '검색',
+      color: '#F58B29',
+      bgColor: '#FFE6C1'
+    },
+    {
+      label: '사이트',
+      color: '#A89D32',
+      bgColor: '#FDF7C1'
+    }
+  ]
+}
 
 export default function LinkItem() {
   return (
     <StyledLinkItem>
-      <Thumbnail src={ process.env.PUBLIC_URL + '/images/LinkItem/LinkThumbnail.png' }/>
+      <Thumbnail src={ linkInfo.thumbnail }/>
       <FloatingControls className="floating-controls">
-        <CopyButton className="copy-button" text='www.naver.com' onCopy={()=> { alert("주소가 클립보드로 복사되었습니다.") }}/>
+        <CopyButton className="copy-button" text={linkInfo.url} onCopy={()=> { alert("주소가 클립보드로 복사되었습니다.") }}/>
       </FloatingControls>
       <LinkInfo>
-        <Favicon src={ process.env.PUBLIC_URL + '/images/LinkItem/favicon.ico' }/>
+        <Favicon src={ linkInfo.favicon }/>
         <LinkText>
-          <LinkName href="https://www.naver.com">네이버</LinkName>
-          <LinkURL href="https://www.naver.com">www.naver.com</LinkURL>
+          <LinkLabel href={linkInfo.url}>{linkInfo.label}</LinkLabel>
+          <LinkURL href={linkInfo.url}>{getDomainName(linkInfo.url)}</LinkURL>
         </LinkText>
         <KebabButton />
       </LinkInfo>
-      <BoardInfo>
-        <DividerLine>
-          <CategoryContainer>
-            <CategoryItem color="#F58B29" bgColor="#FFE6C1">검색</CategoryItem>
-          </CategoryContainer>
-          <BoardLink>
-            <BoardName>여행 리스트</BoardName>
-            <GotoButton />
-          </BoardLink>
-        </DividerLine>
-      </BoardInfo>
+      {boardInfo ? <BoardInfo boardInfo={boardInfo} /> : ''}
     </StyledLinkItem>
+  )
+}
+
+function BoardInfo({boardInfo}) {
+  return (
+    <StyledBoardInfo>
+      <DividerLine>
+        <CategoryContainer>
+          {boardInfo.category.map( c => <CategoryItem color={c.color} bgColor={c.bgColor}>{c.label}</CategoryItem>)}
+        </CategoryContainer>
+        <BoardLink>
+          <BoardName>{boardInfo.name}</BoardName>
+          <GotoButton />
+        </BoardLink>
+      </DividerLine>
+    </StyledBoardInfo>
   )
 }
 
@@ -73,7 +108,7 @@ const Thumbnail = styled.img`
 
 const LinkInfo = styled.div`
   width: 100%;
-  padding: 12px;
+  padding: 16px 12px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -98,7 +133,7 @@ const LinkText = styled.div`
   line-height: 1em;
 `;
 
-const LinkName = styled.a`
+const LinkLabel = styled.a`
   font-size: 1em;
   font-family: Pretendard;
   font-weight: 700;
@@ -118,7 +153,7 @@ const LinkURL = styled.a`
   }
 `;
 
-const BoardInfo = styled.div`
+const StyledBoardInfo = styled.div`
   width: 100%;
   padding: 0 12px;
 `;
@@ -134,12 +169,18 @@ const DividerLine = styled.div`
 `;
 
 const CategoryContainer = styled.div`
+  overflow: scroll;
+  display: flex;
   flex-grow: 1;
+  & div {
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
 `;
 
 const BoardLink = styled.div`
   display: flex;
-  flex-shrink: 1;
+  flex-shrink: 0;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
