@@ -21,7 +21,6 @@ const StyledCopyButton = styled.div`
   height: 32px;
   border-radius: 5px;
   background-color: #EBEBEB;
-  padding: 4px 7px;
   display: flex;
   justify-content: center;
   align-items: center;
