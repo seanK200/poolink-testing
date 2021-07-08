@@ -177,7 +177,12 @@ const DividerLine = styled.div`
 `;
 
 const CategoryContainer = styled.div`
-  overflow: scroll;
+  overflow-x: scroll;
+  ::-webkit-scrollbar {
+  display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   display: flex;
   flex-grow: 1;
   & div {
