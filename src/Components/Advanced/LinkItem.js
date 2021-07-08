@@ -37,14 +37,15 @@ const initialboardInfo = {
 }
 
 export default function LinkItem() {
-  const [linkInfo, setLinkInfo] = useState(initiallinkInfo);
-  const [boardInfo, setBoardInfo] = useState(initialboardInfo);
+  const [linkInfo, ] = useState(initiallinkInfo);
+  const [boardInfo, ] = useState(initialboardInfo);
 
   return (
     <StyledLinkItem>
       <Thumbnail src={ linkInfo.thumbnail }/>
       <FloatingControls className="floating-controls">
-        <CopyButton className="copy-button" text={linkInfo.url} onCopy={()=> { alert("주소가 클립보드로 복사되었습니다.") }}/>
+        <CopyButton className="copy-button" text={linkInfo.url} />
+        {boardInfo ? <LargeButton style={{ marginLeft: '8px' }}>저장하기</LargeButton> : ''}
       </FloatingControls>
       <LinkInfo>
         <Favicon src={ linkInfo.favicon }/>
@@ -64,7 +65,7 @@ function BoardInfo({boardInfo}) {
     <StyledBoardInfo>
       <DividerLine>
         <CategoryContainer>
-          {boardInfo.category.map( c => <CategoryItem color={c.color} bgColor={c.bgColor}>{c.label}</CategoryItem>)}
+          {boardInfo.category.map( (c, idx) => <CategoryItem key={idx} color={c.color} bgColor={c.bgColor}>{c.label}</CategoryItem>)}
         </CategoryContainer>
         <BoardLink>
           <BoardName>{boardInfo.name}</BoardName>
@@ -99,6 +100,10 @@ const FloatingControls = styled.div`
   top: 130px;
   right: 12px;
   transition: 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-end;
+  align-items: flex-end;
 `;
 
 const Thumbnail = styled.img`

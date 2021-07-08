@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function LargeButton({ props, children }) {
+export default function LargeButton(props) {
   return (
-    <StyledLargeButton {...props}>{children}</StyledLargeButton>
+    <StyledLargeButton {...props}>{props.children}</StyledLargeButton>
   )
 }
 
@@ -13,6 +13,6 @@ const StyledLargeButton = styled.button`
   font-size: 0.75em;
   font-weight: 600;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 7px 15px;
   border: none;
 `;
