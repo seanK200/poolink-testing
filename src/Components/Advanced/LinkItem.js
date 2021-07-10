@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import CategoryItem from '../Basic/CategoryItem';
 import CopyButton from '../Basic/CopyButton';

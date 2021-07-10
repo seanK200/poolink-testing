@@ -9,7 +9,6 @@ export default function CopyButton(props) {
   useEffect(() => {
     return () => {
       if(timeOutRef.current) clearTimeout(timeOutRef);
-      console.log('cleanup function')
     }
     //eslint-disable-next-line
   }, [])
@@ -42,7 +41,7 @@ const StyledCopyButton = styled.div`
   min-width: 32px;
   height: 32px;
   border-radius: 5px;
-  background-color: #EBEBEB;
+  background-color: ${props => props.bgcolor ? props.bgcolor : '#EBEBEB'};
   display: flex;
   justify-content: center;
   align-items: center;

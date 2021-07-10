@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function CategoryItem({ text, color, bgColor, children }) {
+export default function CategoryItem({ color, bgColor, children }) {
   return (
-    <StyledCategoryItem color={color ? color : 'gray'} bgColor={bgColor ? bgColor : 'lightgray'}>
-      {text ? text : children}
+    <StyledCategoryItem color={color} bgColor={bgColor}>
+      {children}
     </StyledCategoryItem>
   )
 }
 
 const StyledCategoryItem = styled.div`
   border-radius: 16px;
-  padding: 6px 16px;
+  padding: 2px 13px;
   color: ${props => props.color};
   background-color: ${props => props.bgColor};
   font-family: Pretendard;
