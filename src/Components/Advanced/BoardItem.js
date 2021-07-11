@@ -56,18 +56,14 @@ export default function BoardItem() {
           </ButtonContainer>
         </BoardNameContainer>
         <RecentLinkList>
-          <LinkInfo>
-            <Favicon src={linkInfo[0].favicon}/>
-            <LinkLabel href={linkInfo[0].url}>{linkInfo[0].label}</LinkLabel>
-          </LinkInfo>
-          <LinkInfo>
-            <Favicon src={linkInfo[1].favicon}/>
-            <LinkLabel href={linkInfo[1].url}>{linkInfo[1].label}</LinkLabel>
-          </LinkInfo>
-          <LinkInfo>
-            <Favicon src={linkInfo[2].favicon}/>
-            <LinkLabel href={linkInfo[2].url}>{linkInfo[2].label}</LinkLabel>
-          </LinkInfo>
+          {initialRecentLinkList.map ((l,idx) => ( 
+            <LinkInfo key={idx}>
+              <Favicon src={l.favicon} />
+              <LinkLabel href={l.url} >
+                {l.label}
+              </LinkLabel>
+            </LinkInfo> 
+          ))}
         </RecentLinkList>
         <DividerLine>
           {initialBoardInfo.category.map( (c, idx) => <CategoryItem key={idx} color={c.color} bgColor={c.bgColor}>{c.label}</CategoryItem>)}
